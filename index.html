@@ -1,82 +1,42 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Painel - Cebolitos</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background: url('https://i.imgur.com/H8Urryc.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: sans-serif;
-    }
-  </style>
+  <title>Painel Cebolitos V2</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="min-h-screen text-white flex flex-col items-center justify-center p-4">
-
-  <div class="bg-black/70 p-6 rounded-2xl shadow-lg w-full max-w-3xl text-center space-y-4">
-    <h1 class="text-3xl font-bold mb-4">Painel Cebolitos V2</h1>
-
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-      <button onclick="openAdmin()" class="btn">Admin Painel</button>
-      <button onclick="openLink('https://doritus.mmrcoss.tech/')" class="btn">Tarefas SP</button>
-      <button onclick="copyCode('javascript:function remove_block(){const e=function(e){', 'Código copiado com sucesso!')" class="btn">Redação V1</button>
-      <button onclick="copyCode('javascript:fetch(`https://res.cloudinary.com/dcwnwmtgc/raw/upload/v1743256849/cacetada.js`).then(r => r.text()).then(r => eval(r));', 'Código copiado com sucesso!')" class="btn">Redação V2</button>
-      <button onclick="openLink('https://redacao.mmrcoss.tech/')" class="btn">Redação V3</button>
-      <button onclick="copyCode('javascript:fetch(`https://res.cloudinary.com/dcwnwmtgc/raw/upload/v'+Math.floor(Math.random()*1000000)+'/zxay141rf6uw3wwzea35.txt`).then(r => r.text()).then(r => eval(r));', 'Código copiado com sucesso!')" class="btn">Expansão Noturna</button>
-      <button onclick="openLink('https://github.com/marcos10pc/Alura-Destroyer')" class="btn">Alura</button>
-      <button onclick="copyCode('javascript:fetch(\"https://raw.githubusercontent.com/iUnknownBr/KhanDestroyer/refs/heads/main/KhanDestroyer.js\").then(t=>t.text()).then(eval);', 'Código copiado com sucesso!')" class="btn">Khan Academy</button>
-      <button onclick="openLink('https://pixgg.com/DarkMode')" class="btn">Doação Darkmode</button>
-      <button onclick="openLink('https://discord.gg/platformdestroyer')" class="btn">Discord</button>
-      <button onclick="openLink('https://darkmodde.github.io/CMSP-Hacks/videos')" class="btn">Tutorial</button>
-      <button onclick="showAbout()" class="btn">Sobre</button>
+<body>
+  <div class="background"></div>
+  <main>
+    <h1 class="typewriter">Painel Cebolitos V2</h1>
+    <div class="button-container">
+      <button onclick="copyToClipboard(`javascript:fetch('https://doritus.mmrcoss.tech/')`)">Tarefas SP</button>
+      <button onclick="copyToClipboard(`javascript:function remove_block(){const e=function(e){`)">Redação V1</button>
+      <button onclick="copyToClipboard(`javascript:fetch('https://res.cloudinary.com/dcwnwmtgc/raw/upload/v1743256849/cacetada.js').then(r => r.text()).then(r => eval(r));`)">Redação V2</button>
+      <button onclick="window.open('https://redacao.mmrcoss.tech/', '_blank')">Redação V3</button>
+      <button onclick="copyToClipboard(`javascript:fetch('https://res.cloudinary.com/dcwnwmtgc/raw/upload/v${Math.floor(Math.random() * 1000000)}/zxay141rf6uw3wwzea35.txt').then(r => r.text()).then(r => eval(r));`)">Expansão Noturna</button>
+      <button onclick="copyToClipboard(`javascript:fetch('https://raw.githubusercontent.com/marcos10pc/Alura-Destroyer/main/script.js').then(r => r.text()).then(r => eval(r));`)">Alura</button>
+      <button onclick="copyToClipboard(`javascript:fetch('https://raw.githubusercontent.com/iUnknownBr/KhanDestroyer/refs/heads/main/KhanDestroyer.js').then(t=>t.text()).then(eval);`)">Khan Academy</button>
+      <button onclick="window.open('https://pixgg.com/DarkMode', '_blank')">Doação Darkmode</button>
+      <button onclick="window.open('https://discord.gg/platformdestroyer', '_blank')">Discord</button>
+      <button onclick="window.open('https://darkmodde.github.io/CMSP-Hacks/videos', '_blank')">Tutorial</button>
     </div>
-
-    <div id="toast" class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-xl shadow-lg hidden">Copiado com sucesso!</div>
-
-    <footer class="mt-6 text-sm">
-      <strong>Créditos para os Devs:</strong><br>
-      <span class="font-bold text-purple-300">Darkmode</span>, 
-      <span class="font-bold text-purple-300">iUnknowBr</span>, 
-      <span class="font-bold text-purple-300">Snow</span>, 
-      <span class="font-bold text-purple-300">Marcos10pc</span>, 
-      <span class="font-bold text-purple-300">Cupiditys</span>, 
-      <span class="font-bold text-purple-300">Flowings</span>
-    </footer>
-  </div>
-
-  <script>
-    function copyCode(code, message) {
-      navigator.clipboard.writeText(code).then(() => {
-        showToast(message);
-      });
-    }
-
-    function openLink(url) {
-      window.open(url, '_blank');
-    }
-
-    function showToast(message) {
-      const toast = document.getElementById('toast');
-      toast.textContent = message;
-      toast.classList.remove('hidden');
-      setTimeout(() => toast.classList.add('hidden'), 2000);
-    }
-
-    function openAdmin() {
-      alert('Função do Admin Painel será implementada como descrito.');
-    }
-
-    function showAbout() {
-      alert("Projeto feito para facilitar o acesso às ferramentas Cebolitos V2. Desenvolvido com amor para a comunidade CMSP.");
-    }
-  </script>
-
-  <style>
-    .btn {
-      @apply bg-purple-700 hover:bg-purple-800 text-white py-2 px-3 rounded-2xl shadow transition-all;
-    }
-  </style>
+    <div class="admin-footer">
+      <button onclick="alert('Admin Painel')">Admin Painel</button>
+    </div>
+    <div class="credits">
+      <h2>Créditos para os Dev:</h2>
+      <p>Darkmode</p>
+      <p>iUnknowBr</p>
+      <p>Snow</p>
+      <p>Marcos10pc</p>
+      <p>Cupiditys</p>
+      <p>Flowings</p>
+    </div>
+  </main>
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
 </body>
 </html>
