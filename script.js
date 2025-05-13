@@ -1,16 +1,5 @@
-
-document.addEventListener("DOMContentLoaded", function() {
-    const text = "CMSP CHEATS PANEL";
-    const typedText = document.getElementById("typed-text");
-    let index = 0;
-
-    function typeEffect() {
-        if (index < text.length) {
-            typedText.textContent += text.charAt(index);
-            index++;
-            setTimeout(typeEffect, 100);
-        }
-    }
-
-    typeEffect();
-});
+function copiarTexto(texto) {
+    navigator.clipboard.writeText(texto).then(() => {
+        alert("Script copiado com sucesso!");
+    });
+}
