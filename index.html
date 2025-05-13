@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cmsp cheats painel V2</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>cmsp cheats painel V2</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <h1 class="titulo">cmsp cheats painel <span class="v2">V2</span></h1>
+  <div class="container">
+    <h1 class="title"><span class="highlight">cmsp cheats</span> painel <span class="v2">V2</span></h1>
 
-    <div class="notificacao">Considere enviar uma doação para ajudar o projeto!</div>
+    <div class="notification">Considere enviar uma doação para ajudar o projeto!</div>
 
-    <div class="botoes">
-        <button onclick="window.open('https://doritus.mmrcoss.tech/')" class="botao icone-site">Tarefasp</button>
-        <button onclick="copiarTexto('javascript:function remove_block(){const e=function(e){')" class="botao icone-escrever">Redação V1</button>
-        <button onclick="copiarTexto('javascript:fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v1743256849/cacetada.js).then(r => r.text()).then(r => eval(r));')" class="botao icone-escrever">Redação V2</button>
-        <button onclick="window.open('https://redacao.mmrcoss.tech/')" class="botao icone-site">Redação V3</button>
-        <button onclick="copiarTexto('javascript:fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v${Math.floor(Math.random() * 1000000)}/zxay141rf6uw3wwzea35.txt).then(r => r.text()).then(r => eval(r));')" class="botao icone-lua">Expansão noturna</button>
-        <button onclick="window.open('https://github.com/marcos10pc/Alura-Destroyer')" class="botao icone-site">Alura</button>
-        <button onclick="copiarTexto('javascript:fetch(\"https://raw.githubusercontent.com/iUnknownBr/KhanDestroyer/refs/heads/main/KhanDestroyer.js\").then(t=>t.text()).then(eval);')" class="botao icone-site">Khan Academy</button>
-        <button onclick="window.open('https://pixgg.com/DarkMode')" class="botao verde icone-doar">Doação Darkmode</button>
-        <button onclick="window.open('https://discord.gg/platformdestroyer')" class="botao azul icone-discord">Discord</button>
-        <button onclick="window.open('https://darkmodde.github.io/CMSP-Hacks/videos')" class="botao roxo icone-video">Tutorial</button>
+    <div class="buttons">
+      <button class="btn" onclick="window.open('https://doritus.mmrcoss.tech/')">📝 Tarefasp</button>
+      <button class="btn" onclick="copiarTexto('javascript:function remove_block(){const e=function(e){')">✍️ Redação V1</button>
+      <button class="btn" onclick="copiarTexto('javascript:fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v1743256849/cacetada.js).then(r => r.text()).then(r => eval(r));')">✍️ Redação V2</button>
+      <button class="btn" onclick="window.open('https://redacao.mmrcoss.tech/')">📝 Redação V3</button>
+      <button class="btn" onclick="copiarTexto('javascript:fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v${Math.floor(Math.random() * 1000000)}/zxay141rf6uw3wwzea35.txt).then(r => r.text()).then(r => eval(r));')">🌙 Expansão Noturna</button>
+      <button class="btn" onclick="window.open('https://github.com/marcos10pc/Alura-Destroyer')">💻 Alura</button>
+      <button class="btn" onclick="copiarTexto('javascript:fetch(\"https://raw.githubusercontent.com/iUnknownBr/KhanDestroyer/refs/heads/main/KhanDestroyer.js\").then(t=>t.text()).then(eval);')">🎓 Khan Academy</button>
+      <button class="btn green" onclick="window.open('https://pixgg.com/DarkMode')">💸 Doação Darkmode</button>
+      <button class="btn blue" onclick="window.open('https://discord.gg/platformdestroyer')">💬 Discord</button>
+      <button class="btn purple" onclick="window.open('https://darkmodde.github.io/CMSP-Hacks/videos')">🎥 Tutorial</button>
     </div>
 
-    <div class="creditos">
-        <p>Darkmode</p>
-        <p>iUnknowBr</p>
-        <p>Snow</p>
-        <p>Marcos10pc</p>
-        <p>Cupiditys</p>
-        <p>Flowings</p>
+    <div class="credit-box">
+      <p>Darkmode</p>
+      <p>iUnknowBr</p>
+      <p>Snow</p>
+      <p>Marcos10pc</p>
+      <p>Cupiditys</p>
+      <p>Flowings</p>
     </div>
 
-    <div class="sobre">
-        <p>Site feito por <strong>NicollasPsico</strong>, baseado no site do Darkmode.<br>
-        Em caso de bugs, abra um ticket no servidor do Discord.</p>
+    <div class="sobre-box">
+      <p><strong>Site feito por NicollasPsico</strong>, baseado no site do Darkmode.<br>Em caso de bugs, abra um ticket no servidor do Discord.</p>
     </div>
+  </div>
 </body>
 </html>
