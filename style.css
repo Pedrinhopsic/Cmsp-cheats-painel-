@@ -1,83 +1,90 @@
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(-45deg, #2c003e, #3b0060, #4c0074, #5d0099);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  color: white;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg, #0d0d2b, #1a1a3d, #000c2b, #1a1a2e);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #fff;
 }
-
-@keyframes gradient {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
-
 .container {
-  padding: 20px;
-  text-align: center;
+    text-align: center;
+    padding: 20px;
 }
-
-.title {
-  font-size: 3em;
-  margin-bottom: 10px;
+.panel-title span {
+    font-size: 2.8em;
+    background: linear-gradient(90deg, #9f52ff, #3a0ca3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: typing 4s steps(40, end), blink 0.5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: .15em solid orange;
 }
-
-.highlight {
-  color: #9f5afd;
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
 }
-
-.v2 {
-  color: #5d0099;
+@keyframes blink {
+    50% { border-color: transparent }
 }
-
-.notification {
-  background-color: #111;
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 15px 0;
-  border-radius: 8px;
-  border: 2px solid #5d0099;
-}
-
 .buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
 }
-
-.btn {
-  background-color: #111;
-  border: 2px solid #444;
-  color: white;
-  padding: 15px 25px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: all 0.2s ease;
+button {
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 0 10px #3a0ca3;
+    min-width: 160px;
 }
-
-.btn:hover {
-  border-color: #9f5afd;
-  transform: scale(1.05);
+button:hover {
+    transform: scale(1.05);
 }
-
-.btn.green { background-color: #006400; }
-.btn.blue { background-color: #5865F2; }
-.btn.purple { background-color: purple; }
-
-.credit-box, .sobre-box {
-  background-color: #111;
-  padding: 15px 25px;
-  margin: 20px auto;
-  max-width: 500px;
-  border-radius: 12px;
-  border: 2px solid #5d0099;
+button.discord { background: #5865f2; }
+button.tutorial { background: #9c27b0; }
+button.donate { background: #4caf50; }
+.notification {
+    margin: 20px 0;
+    padding: 12px;
+    background-color: #222;
+    border-left: 6px solid #4caf50;
+    font-size: 1rem;
+    max-width: 400px;
+    margin-inline: auto;
+    border-radius: 6px;
 }
-
-.credit-box p {
-  margin: 5px 0;
+.sobre {
+    margin-top: 10px;
+    font-size: 1rem;
+    max-width: 600px;
+    margin-inline: auto;
+}
+.credits-box {
+    margin-top: 30px;
+    background: #111;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #3a0ca3;
+    width: fit-content;
+    margin-inline: auto;
+}
+.credits-box h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #b388ff;
 }
