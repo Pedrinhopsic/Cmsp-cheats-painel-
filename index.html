@@ -1,41 +1,43 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>CMSP Cheats Painel V2</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cmsp cheats painel V2</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1 class="panel-title"><span>CMSP Cheats Painel V2</span></h1>
-        <div class="notification">Ajude o projeto com uma doação no botão abaixo!</div>
-        <p class="sobre">Feito por <strong>NicollasPsico</strong>, baseado no site do Darkmode.<br>
-        Se encontrar algum erro ou bug, abra um ticket no servidor do Discord.</p>
-
-        <div class="buttons">
-            <button onclick="window.open('https://doritus.mmrcoss.tech/')">📘 Tarefas SP</button>
-            <button onclick="copyScript('function remove_block(){const e=function(e){')">✏️ Redação V1</button>
-            <button onclick="copyScript('fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v1743256849/cacetada.js).then(r => r.text()).then(r => eval(r));')">✏️ Redação V2</button>
-            <button onclick="window.open('https://redacao.mmrcoss.tech/')">✏️ Redação V3</button>
-            <button onclick="copyScript('fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v'+Math.floor(Math.random() * 1000000)+'/zxay141rf6uw3wwzea35.txt).then(r => r.text()).then(r => eval(r));')">🌙 Expansão Noturna</button>
-            <button onclick="window.open('https://github.com/marcos10pc/Alura-Destroyer')">💻 Alura</button>
-            <button onclick="copyScript('fetch(\"https://raw.githubusercontent.com/iUnknownBr/KhanDestroyer/refs/heads/main/KhanDestroyer.js\").then(t=>t.text()).then(eval);')">📚 Khan Academy</button>
-            <button class="discord" onclick="window.open('https://discord.gg/platformdestroyer')">💬 Discord</button>
-            <button class="tutorial" onclick="window.open('https://darkmodde.github.io/CMSP-Hacks/videos')">🎥 Tutorial</button>
-            <button class="donate" onclick="window.open('https://pixgg.com/DarkMode')">💸 Doação Darkmode</button>
-        </div>
-
-        <div class="credits-box">
-            <h2>Créditos</h2>
-            <p>Darkmode</p>
-            <p>iUnknowBr</p>
-            <p>Snow</p>
-            <p>Marcos10pc</p>
-            <p>Cupiditys</p>
-            <p>Flowings</p>
-        </div>
+  <div class="container">
+    <h1 class="titulo">cmsp cheats painel <span>V2</span></h1>
+    <p class="descricao">considere enviar uma doação para ajudar o projeto.</p>
+    <div class="botoes">
+      <div class="caixa-botao"><button onclick="window.location.href='https://doritus.mmrcoss.tech/'">📝 Tarefasp</button></div>
+      <div class="caixa-botao"><button onclick="copiarTexto('javascript:function remove_block(){const e=function(e){')">🖊️ Redação V1</button></div>
+      <div class="caixa-botao"><button onclick="copiarTexto('javascript:fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v1743256849/cacetada.js).then(r => r.text()).then(r => eval(r));')">🖋️ Redação V2</button></div>
+      <div class="caixa-botao"><button onclick="window.location.href='https://redacao.mmrcoss.tech/'">✍️ Redação V3</button></div>
+      <div class="caixa-botao"><button onclick="copiarTexto('javascript:fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v${Math.floor(Math.random() * 1000000)}/zxay141rf6uw3wwzea35.txt).then(r => r.text()).then(r => eval(r));')">🌙 Expansão Noturna</button></div>
+      <div class="caixa-botao"><button onclick="window.location.href='https://github.com/marcos10pc/Alura-Destroyer'">📚 Alura</button></div>
+      <div class="caixa-botao"><button onclick="copiarTexto('javascript:fetch(\"https://raw.githubusercontent.com/iUnknownBr/KhanDestroyer/refs/heads/main/KhanDestroyer.js\").then(t=>t.text()).then(eval);')">🎓 Khan Academy</button></div>
+      <div class="caixa-botao"><button onclick="window.location.href='https://pixgg.com/NicollasPsico'">🤍 Doação NicollasPsico</button></div>
+      <div class="caixa-botao"><button onclick="window.location.href='https://discord.gg/platformdestroyer'">💬 Discord</button></div>
+      <div class="caixa-botao"><button onclick="window.location.href='https://darkmodde.github.io/CMSP-Hacks/videos'">🎥 Tutorial</button></div>
     </div>
-    <script src="script.js"></script>
+    <div class="caixa-info">
+      <h2>Créditos dos Dev</h2>
+      <p><strong>NicollasPsico</strong></p>
+      <p><strong>Darkmode</strong></p>
+      <p><strong>iUnknownBr</strong></p>
+      <p><strong>Snow</strong></p>
+      <p><strong>Marcos10pc</strong></p>
+      <p><strong>Cupiditys</strong></p>
+      <p><strong>Flowings</strong></p>
+    </div>
+    <div class="caixa-info">
+      <h2>Sobre</h2>
+      <p>Site feito por NicollasPsico, baseado no site do Darkmode. Se encontrar algum erro ou bug, abra um ticket no nosso servidor do Discord.</p>
+    </div>
+  </div>
 </body>
 </html>
