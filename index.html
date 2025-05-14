@@ -1,43 +1,159 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>cmsp cheats painel V2</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
+  <title>CMSP Cheats Painel V2</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0b0f24;
+      color: white;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .painel-titulo {
+      font-size: 2.5em;
+      background: linear-gradient(to right, #3b82f6, #000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      animation: fadeIn 2s ease;
+    }
+    .aviso-doacao {
+      background: #111;
+      border: 2px solid #3b82f6;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 500px;
+      display: none;
+    }
+    .btn-caixa {
+      background: #000;
+      border: 2px solid #3b82f6;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-caixa:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 10px #3b82f6;
+    }
+    .btn-verde { color: white; background-color: #16a34a; }
+    .btn-roxo { color: white; background-color: #7e22ce; }
+    .btn-azul { color: white; background-color: #2563eb; }
+    .creditos, .sobre {
+      background: #000;
+      border: 2px solid #3b82f6;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 700px;
+    }
+    .creditos h2 {
+      color: #22d3ee;
+      text-align: center;
+    }
+    .creditos strong {
+      color: #10b981;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media screen and (max-width: 600px) {
+      .container { padding: 10px; }
+      .btn-caixa { font-size: 0.9em; }
+    }
+  </style>
 </head>
-<body>
+<body onload="mostrarPopup()">
+
   <div class="container">
-    <h1 class="titulo">cmsp cheats painel <span>V2</span></h1>
-    <p class="descricao">considere enviar uma doação para ajudar o projeto.</p>
-    <div class="botoes">
-      <div class="caixa-botao"><button onclick="window.location.href='https://doritus.mmrcoss.tech/'">📝 Tarefasp</button></div>
-      <div class="caixa-botao"><button onclick="copiarTexto('javascript:function remove_block(){const e=function(e){')">🖊️ Redação V1</button></div>
-      <div class="caixa-botao"><button onclick="copiarTexto('javascript:fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v1743256849/cacetada.js).then(r => r.text()).then(r => eval(r));')">🖋️ Redação V2</button></div>
-      <div class="caixa-botao"><button onclick="window.location.href='https://redacao.mmrcoss.tech/'">✍️ Redação V3</button></div>
-      <div class="caixa-botao"><button onclick="copiarTexto('javascript:fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v${Math.floor(Math.random() * 1000000)}/zxay141rf6uw3wwzea35.txt).then(r => r.text()).then(r => eval(r));')">🌙 Expansão Noturna</button></div>
-      <div class="caixa-botao"><button onclick="window.location.href='https://github.com/marcos10pc/Alura-Destroyer'">📚 Alura</button></div>
-      <div class="caixa-botao"><button onclick="copiarTexto('javascript:fetch(\"https://raw.githubusercontent.com/iUnknownBr/KhanDestroyer/refs/heads/main/KhanDestroyer.js\").then(t=>t.text()).then(eval);')">🎓 Khan Academy</button></div>
-      <div class="caixa-botao"><button onclick="window.location.href='https://pixgg.com/NicollasPsico'">🤍 Doação NicollasPsico</button></div>
-      <div class="caixa-botao"><button onclick="window.location.href='https://discord.gg/platformdestroyer'">💬 Discord</button></div>
-      <div class="caixa-botao"><button onclick="window.location.href='https://darkmodde.github.io/CMSP-Hacks/videos'">🎥 Tutorial</button></div>
+    <h1 class="painel-titulo">CMSP Cheats Painel V2</h1>
+
+    <div id="popup" class="aviso-doacao">
+      <h3>Ajude o projeto!</h3>
+      <p>Esse painel deu trabalho pra fazer! Considere apoiar com uma doação.</p>
+      <button class="btn-caixa btn-verde" onclick="window.open('https://pixgg.com/NicollasPsico')">Doar</button>
+      <button class="btn-caixa btn-roxo" onclick="fecharPopup()">Mais tarde</button>
     </div>
-    <div class="caixa-info">
-      <h2>Créditos dos Dev</h2>
-      <p><strong>NicollasPsico</strong></p>
+
+    <div class="btn-caixa" onclick="abrirSite('https://doritus.mmrcoss.tech/')">
+      <i class="fas fa-tasks"></i> Tarefasp
+    </div>
+    <div class="btn-caixa" onclick="copiarScript('javascript:function remove_block(){const e=function(e){')">
+      <i class="fas fa-file-alt"></i> Redação V1
+    </div>
+    <div class="btn-caixa" onclick="copiarScript('javascript:fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v1743256849/cacetada.js).then(r => r.text()).then(r => eval(r));')">
+      <i class="fas fa-file-code"></i> Redação V2
+    </div>
+    <div class="btn-caixa" onclick="abrirSite('https://redacao.mmrcoss.tech/')">
+      <i class="fas fa-globe"></i> Redação V3
+    </div>
+    <div class="btn-caixa" onclick="copiarScript('javascript:fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v'+Math.floor(Math.random() * 1000000)+'/zxay141rf6uw3wwzea35.txt).then(r => r.text()).then(r => eval(r));')">
+      <i class="fas fa-moon"></i> Expansão Noturna
+    </div>
+    <div class="btn-caixa" onclick="abrirSite('https://github.com/marcos10pc/Alura-Destroyer')">
+      <i class="fab fa-github"></i> Alura
+    </div>
+    <div class="btn-caixa" onclick="copiarScript('javascript:fetch(&quot;https://raw.githubusercontent.com/iUnknownBr/KhanDestroyer/refs/heads/main/KhanDestroyer.js&quot;).then(t=>t.text()).then(eval);')">
+      <i class="fas fa-graduation-cap"></i> Khan Academy
+    </div>
+    <div class="btn-caixa btn-verde" onclick="abrirSite('https://pixgg.com/NicollasPsico')">
+      <i class="fas fa-heart"></i> Doação NicollasPsico
+    </div>
+    <div class="btn-caixa btn-azul" onclick="abrirSite('https://discord.gg/platformdestroyer')">
+      <i class="fab fa-discord"></i> Discord
+    </div>
+    <div class="btn-caixa btn-roxo" onclick="abrirSite('https://darkmodde.github.io/CMSP-Hacks/videos')">
+      <i class="fas fa-video"></i> Tutorial
+    </div>
+
+    <div class="sobre">
+      <p><strong>Sobre:</strong> Site feito por NicollasPsico, baseado no site do DarkMode. Caso encontre algum erro, abra um ticket no Discord.</p>
+    </div>
+
+    <div class="creditos">
+      <h2>Créditos dos Devs</h2>
       <p><strong>Darkmode</strong></p>
-      <p><strong>iUnknownBr</strong></p>
+      <p><strong>iUnknowBr</strong></p>
       <p><strong>Snow</strong></p>
       <p><strong>Marcos10pc</strong></p>
       <p><strong>Cupiditys</strong></p>
       <p><strong>Flowings</strong></p>
     </div>
-    <div class="caixa-info">
-      <h2>Sobre</h2>
-      <p>Site feito por NicollasPsico, baseado no site do Darkmode. Se encontrar algum erro ou bug, abra um ticket no nosso servidor do Discord.</p>
-    </div>
   </div>
+
+  <script>
+    function abrirSite(url) {
+      window.open(url, '_blank');
+    }
+
+    function copiarScript(script) {
+      navigator.clipboard.writeText(script).then(() => {
+        alert('Copiado com sucesso!');
+      });
+    }
+
+    function mostrarPopup() {
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    function fecharPopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
 </body>
-</html>
+      </html>
