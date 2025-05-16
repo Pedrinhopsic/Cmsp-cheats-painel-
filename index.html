@@ -1,170 +1,164 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Painel Escolar</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <title>Painel Destroyer</title>
   <style>
+    @keyframes borda-animada {
+      0% { box-shadow: 0 0 8px #00f; }
+      50% { box-shadow: 0 0 16px #00f; }
+      100% { box-shadow: 0 0 8px #00f; }
+    }
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #0a0f2c;
+      font-family: Arial, sans-serif;
+      background-color: #010928;
       color: white;
-      overflow-x: hidden;
-    }
-    .painel {
-      max-width: 500px;
-      margin: 0 auto;
+      text-align: center;
       padding: 20px;
     }
-    .titulo {
+    .painel {
+      background-color: #000000dd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 2px solid #00f;
+      animation: borda-animada 2s infinite;
+    }
+    h1 {
       font-size: 2em;
-      font-weight: bold;
-      text-align: center;
-      background: linear-gradient(to right, #00BFFF, #000000);
+      background: linear-gradient(to right, #00f, #000);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: typing 3s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: .15em solid white;
     }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: white; }
-    }
-    .caixa-preta {
-      background-color: #000;
-      padding: 15px;
-      border-radius: 12px;
-      margin: 20px 0;
-      box-shadow: 0 0 10px #00BFFF;
-    }
-    .btn-caixa {
-      display: block;
-      text-align: center;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 12px;
-      background-color: #111;
-      box-shadow: 0 0 10px #00BFFF;
-      font-size: 16px;
+    .doacao-msg {
+      margin: 10px 0;
       font-weight: bold;
+    }
+    .botao {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #111;
+      border: 2px solid #00f;
+      border-radius: 8px;
+      color: white;
+      font-size: 1em;
+      padding: 12px;
+      margin: 10px auto;
+      width: 90%;
+      max-width: 400px;
       cursor: pointer;
-      transition: transform 0.2s ease;
     }
-    .btn-caixa:hover {
-      transform: scale(1.05);
+    .botao.verde { background-color: #28a745; }
+    .botao.azul { background-color: #007bff; }
+    .botao.roxo { background-color: #6f42c1; }
+    .botao.vermelho { background-color: #ff0000; }
+    .caixa {
+      background-color: #000;
+      border: 2px solid #00f;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 600px;
     }
-    .btn-grupo {
+    .creditos span {
+      display: block;
+      font-weight: bold;
+      color: #0ff;
+      margin: 5px 0;
+    }
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.9);
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
     }
-    .green { background-color: #2ecc71 !important; }
-    .blue { background-color: #3498db !important; }
-    .purple { background-color: #9b59b6 !important; }
-    .red { background-color: #e74c3c !important; }
-    h2 {
-      color: #00BFFF;
+    .overlay button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
     }
   </style>
 </head>
 <body>
+  <div class="overlay" id="overlay">
+    <h2>Esse painel deu trabalho pra fazer!</h2>
+    <p>Considere fazer uma doação pra ajudar o projeto.</p>
+    <button onclick="window.open('https://pixgg.com/NicollasPsico', '_blank')">Doar</button>
+    <button onclick="document.getElementById('overlay').style.display='none'">Mais tarde</button>
+  </div>
+
   <div class="painel">
-    <div class="titulo">Painel Escolar</div>
-    <p style="text-align:center; margin-top: 10px;">Considere enviar uma doação para ajudar o projeto.</p>
-    
-    <div class="btn-grupo">
-      <div class="btn-caixa" onclick="copiarTexto('javascript:fetch(\'https://raw.githubusercontent.com/iUnknownBr/KhanDestroyer/refs/heads/main/KhanDestroyer.js\').then(t=>t.text()).then(eval);')">
-        <i class="fas fa-graduation-cap"></i> Khan Academy
-      </div>
-      <div class="btn-caixa" onclick="abrirSite('https://leiasp.cupiditys.lol/')">
-        <i class="fas fa-book"></i> Leia SP
-      </div>
+    <h1 id="titulo">Painel Destroyer</h1>
+    <p class="doacao-msg">Considere enviar uma doação para ajudar o projeto.</p>
+
+    <div class="caixa">
+      <div class="botao" onclick="copiar('KA')">🎓 Khan Academy</div>
+      <div class="botao" onclick="window.open('https://leiasp.cupiditys.lol/', '_blank')">📖 Leia SP</div>
     </div>
 
-    <div class="btn-grupo" style="margin-top: 25px;">
-      <div class="btn-caixa green" onclick="abrirSite('https://pixgg.com/NicollasPsico')">
-        <i class="fas fa-heart"></i> Doação NicollasPsico
-      </div>
-      <div class="btn-caixa blue" onclick="abrirSite('https://discord.gg/suporte')">
-        <i class="fab fa-discord"></i> Discord
-      </div>
-      <div class="btn-caixa purple" onclick="abrirSite('https://tutorial.exemplo.com')">
-        <i class="fas fa-video"></i> Tutorial
-      </div>
+    <div class="caixa">
+      <div class="botao verde" onclick="window.open('https://pixgg.com/NicollasPsico', '_blank')">❤ Doação NicollasPsico</div>
+      <div class="botao azul" onclick="window.open('https://discord.com', '_blank')">💬 Discord</div>
+      <div class="botao roxo" onclick="window.open('https://tutorial.url', '_blank')">📹 Tutorial</div>
     </div>
 
-    <div class="caixa-preta">
+    <div class="caixa">
       <strong>Sobre:</strong> Site feito baseado no projeto do DarkMode. Caso encontre algum erro, abra um ticket no Discord.
     </div>
 
-    <div class="caixa-preta">
-      <h2 style="text-align: center;">Créditos dos Devs</h2>
-      <ul style="color: #00ffcc; font-weight: bold;">
-        <li>Darkmode</li>
-        <li>iUnknowBr Melhor dev</li>
-        <li>Marcos10pc</li>
-        <li>Cupiditys</li>
-        <li>Flowings</li>
-      </ul>
+    <div class="caixa creditos">
+      <h2 style="color:cyan">Créditos dos Devs</h2>
+      <span>Darkmode</span>
+      <span>iUnknowBr Melhor dev</span>
+      <span>Marcos10pc</span>
+      <span>Cupiditys</span>
+      <span>Flowings</span>
     </div>
 
-    <div class="caixa-preta">
-      <h2 style="text-align: center;">Notas da Atualização</h2>
-      <ul>
-        <li>Adicionado botão "Leia SP"</li>
-        <li>Melhorias no layout mobile e desktop</li>
-        <li>Correções nos ícones e botões</li>
-        <li>Aviso inicial de doação adicionado</li>
-      </ul>
+    <div class="caixa">
+      <h3>Notas da Atualização</h3>
+      <p>Adicionado botão Leia SP e botão do YouTube NicollasPsico</p>
     </div>
 
-    <div class="btn-caixa red" onclick="abrirSite('https://youtube.com/@pedrinhopsico?si=p1rL69lMnlll7lh0')">
-      <i class="fab fa-youtube"></i> YouTube NicollasPsico
-    </div>
+    <div class="botao vermelho" onclick="window.open('https://youtube.com/@pedrinhopsico?si=p1rL69lMnlll7lh0', '_blank')">▶ YouTube NicollasPsico</div>
   </div>
 
   <script>
-    function abrirSite(url) {
-      window.open(url, "_blank");
+    function copiar(tipo) {
+      if (tipo === 'KA') {
+        navigator.clipboard.writeText("javascript:fetch('https://raw.githubusercontent.com/iUnknownBr/KhanDestroyer/refs/heads/main/KhanDestroyer.js').then(t=>t.text()).then(eval);");
+        alert('Script copiado com sucesso!');
+      }
     }
-    function copiarTexto(texto) {
-      navigator.clipboard.writeText(texto).then(() => {
-        alert("Código copiado com sucesso!");
-      });
-    }
-    // Aviso de doação ao entrar
-    window.onload = () => {
-      const aviso = document.createElement("div");
-      aviso.style.position = "fixed";
-      aviso.style.top = 0;
-      aviso.style.left = 0;
-      aviso.style.width = "100%";
-      aviso.style.height = "100%";
-      aviso.style.backgroundColor = "rgba(0,0,0,0.95)";
-      aviso.style.display = "flex";
-      aviso.style.flexDirection = "column";
-      aviso.style.justifyContent = "center";
-      aviso.style.alignItems = "center";
-      aviso.style.zIndex = 9999;
-      aviso.innerHTML = `
-        <h2 style="color: white; text-align: center;">Ajude nosso projeto com uma doação!</h2>
-        <div style="margin-top: 20px;">
-          <button onclick="window.open('https://pixgg.com/NicollasPsico');document.body.removeChild(this.parentElement.parentElement)" style="padding: 10px 20px; font-size: 16px; margin-right: 10px;">Doar</button>
-          <button onclick="document.body.removeChild(this.parentElement.parentElement)" style="padding: 10px 20px; font-size: 16px;">Mais tarde</button>
-        </div>
-      `;
-      document.body.appendChild(aviso);
-    }
+
+    const titulo = document.getElementById("titulo");
+    const texto = "Painel Destroyer";
+    let i = 0, apagar = false;
+    setInterval(() => {
+      titulo.innerText = texto.substring(0, i);
+      if (!apagar) {
+        i++;
+        if (i > texto.length) {
+          apagar = true;
+          i = texto.length;
+        }
+      } else {
+        i--;
+        if (i < 0) {
+          apagar = false;
+          i = 0;
+        }
+      }
+    }, 150);
   </script>
 </body>
 </html>
