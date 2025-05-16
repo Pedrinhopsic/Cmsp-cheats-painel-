@@ -1,216 +1,170 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CMSP Cheats Painel V2</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Escolar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0b0f24;
+      font-family: 'Arial', sans-serif;
+      background-color: #0a0f2c;
       color: white;
       overflow-x: hidden;
     }
-    .container {
-      max-width: 1000px;
-      margin: 50px auto;
+    .painel {
+      max-width: 500px;
+      margin: 0 auto;
       padding: 20px;
     }
-    .painel-titulo {
-      font-size: 2.5em;
+    .titulo {
+      font-size: 2em;
+      font-weight: bold;
       text-align: center;
-      background: linear-gradient(to right, #3b82f6, #000);
+      background: linear-gradient(to right, #00BFFF, #000000);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      height: 60px;
-      margin-bottom: 10px;
+      animation: typing 3s steps(30, end) infinite, blink-caret 0.75s step-end infinite;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: .15em solid white;
     }
-    .painel-sub {
-      text-align: center;
-      font-size: 1rem;
-      margin-bottom: 30px;
-      color: #ccc;
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: white; }
+    }
+    .caixa-preta {
+      background-color: #000;
+      padding: 15px;
+      border-radius: 12px;
+      margin: 20px 0;
+      box-shadow: 0 0 10px #00BFFF;
     }
     .btn-caixa {
-      background: #000;
-      border: 2px solid #3b82f6;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 10px 0;
+      display: block;
       text-align: center;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 12px;
+      background-color: #111;
+      box-shadow: 0 0 10px #00BFFF;
+      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: transform 0.2s ease;
     }
     .btn-caixa:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 10px #3b82f6;
+      transform: scale(1.05);
     }
-    .btn-verde { color: white; background-color: #16a34a; }
-    .btn-roxo { color: white; background-color: #7e22ce; }
-    .btn-azul { color: white; background-color: #2563eb; }
-
-    .creditos, .sobre {
-      background: #000;
-      border: 2px solid #3b82f6;
-      padding: 15px;
-      border-radius: 10px;
-      margin: 20px auto;
-      max-width: 700px;
-    }
-    .creditos h2 {
-      color: #22d3ee;
-      text-align: center;
-    }
-    .creditos strong {
-      color: #10b981;
-    }
-
-    .grupo-botoes {
-      margin-bottom: 40px;
-    }
-
-    .grupo-extra {
-      margin-top: 50px;
-    }
-
-    #popup {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      z-index: 9999;
+    .btn-grupo {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
     }
-    #popup-content {
-      background: #111;
-      border: 2px solid #3b82f6;
-      padding: 30px;
-      text-align: center;
-      border-radius: 10px;
-      max-width: 400px;
-    }
-    @media screen and (max-width: 600px) {
-      .container { padding: 10px; }
-      .btn-caixa { font-size: 0.9em; }
+    .green { background-color: #2ecc71 !important; }
+    .blue { background-color: #3498db !important; }
+    .purple { background-color: #9b59b6 !important; }
+    .red { background-color: #e74c3c !important; }
+    h2 {
+      color: #00BFFF;
     }
   </style>
 </head>
-<body onload="mostrarPopup()">
-
-  <div id="popup">
-    <div id="popup-content">
-      <h3>Ajude o projeto!</h3>
-      <p>Esse painel deu trabalho pra fazer! Considere apoiar com uma doação.</p>
-      <button class="btn-caixa btn-verde" onclick="window.open('https://pixgg.com/NicollasPsico')">Doar</button>
-      <button class="btn-caixa btn-roxo" onclick="fecharPopup()">Mais tarde</button>
-    </div>
-  </div>
-
-  <div class="container">
-    <h1 class="painel-titulo"><span id="typed-text"></span></h1>
-    <p class="painel-sub">Considere fazer uma doação para ajudar o projeto, e obrigado Unk melhor dev de todos.</p>
-
-    <div class="grupo-botoes">
-      <div class="btn-caixa" onclick="abrirSite('https://doritus.mmrcoss.tech/')">
-        <i class="fas fa-tasks"></i> Tarefasp
-      </div>
-      <div class="btn-caixa" onclick="copiarScript('javascript:function remove_block(){const e=function(e){')">
-        <i class="fas fa-file-alt"></i> Redação V1
-      </div>
-      <div class="btn-caixa" onclick="copiarScript('javascript:fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v1743256849/cacetada.js).then(r => r.text()).then(r => eval(r));')">
-        <i class="fas fa-file-code"></i> Redação V2
-      </div>
-      <div class="btn-caixa" onclick="abrirSite('https://redacao.mmrcoss.tech/')">
-        <i class="fas fa-globe"></i> Redação V3
-      </div>
-      <div class="btn-caixa" onclick="copiarScript('javascript:fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v'+Math.floor(Math.random() * 1000000)+'/zxay141rf6uw3wwzea35.txt).then(r => r.text()).then(r => eval(r));')">
-        <i class="fas fa-moon"></i> Expansão Noturna
-      </div>
-      <div class="btn-caixa" onclick="abrirSite('https://github.com/marcos10pc/Alura-Destroyer')">
-        <i class="fab fa-github"></i> Alura
-      </div>
-      <div class="btn-caixa" onclick="copiarScript('javascript:fetch(&quot;https://raw.githubusercontent.com/iUnknownBr/KhanDestroyer/refs/heads/main/KhanDestroyer.js&quot;).then(t=>t.text()).then(eval);')">
+<body>
+  <div class="painel">
+    <div class="titulo">Painel Escolar</div>
+    <p style="text-align:center; margin-top: 10px;">Considere enviar uma doação para ajudar o projeto.</p>
+    
+    <div class="btn-grupo">
+      <div class="btn-caixa" onclick="copiarTexto('javascript:fetch(\'https://raw.githubusercontent.com/iUnknownBr/KhanDestroyer/refs/heads/main/KhanDestroyer.js\').then(t=>t.text()).then(eval);')">
         <i class="fas fa-graduation-cap"></i> Khan Academy
       </div>
-    <div class="btn-caixa" onclick="abrirSite('https://leiasp.cupiditys.lol/')">
-  <i class="fas fa-book-open"></i> Leia SP
+      <div class="btn-caixa" onclick="abrirSite('https://leiasp.cupiditys.lol/')">
+        <i class="fas fa-book"></i> Leia SP
+      </div>
     </div>
-    
 
-    <div class="grupo-extra">
-      <div class="btn-caixa btn-verde" onclick="abrirSite('https://pixgg.com/NicollasPsico')">
+    <div class="btn-grupo" style="margin-top: 25px;">
+      <div class="btn-caixa green" onclick="abrirSite('https://pixgg.com/NicollasPsico')">
         <i class="fas fa-heart"></i> Doação NicollasPsico
       </div>
-      <div class="btn-caixa btn-azul" onclick="abrirSite('https://discord.gg/platformdestroyer')">
+      <div class="btn-caixa blue" onclick="abrirSite('https://discord.gg/suporte')">
         <i class="fab fa-discord"></i> Discord
       </div>
-      <div class="btn-caixa btn-roxo" onclick="abrirSite('https://darkmodde.github.io/CMSP-Hacks/videos')">
+      <div class="btn-caixa purple" onclick="abrirSite('https://tutorial.exemplo.com')">
         <i class="fas fa-video"></i> Tutorial
       </div>
     </div>
 
-    <div class="sobre">
-      <p><strong>Sobre:</strong> Site feito baseado no projeto do DarkMode. Caso encontre algum erro, abra um ticket no Discord.</p>
+    <div class="caixa-preta">
+      <strong>Sobre:</strong> Site feito baseado no projeto do DarkMode. Caso encontre algum erro, abra um ticket no Discord.
     </div>
 
-    <div class="creditos">
-      <h2>Créditos dos Devs</h2>
-      <p><strong>Darkmode</strong></p>
-      <p><strong>iUnknowBr Melhor dev</strong></p>
-  
-      <p><strong>Marcos10pc</strong></p>
-      <p><strong>Cupiditys</strong></p>
-      <p><strong>Flowings</strong></p>
+    <div class="caixa-preta">
+      <h2 style="text-align: center;">Créditos dos Devs</h2>
+      <ul style="color: #00ffcc; font-weight: bold;">
+        <li>Darkmode</li>
+        <li>iUnknowBr Melhor dev</li>
+        <li>Marcos10pc</li>
+        <li>Cupiditys</li>
+        <li>Flowings</li>
+      </ul>
+    </div>
+
+    <div class="caixa-preta">
+      <h2 style="text-align: center;">Notas da Atualização</h2>
+      <ul>
+        <li>Adicionado botão "Leia SP"</li>
+        <li>Melhorias no layout mobile e desktop</li>
+        <li>Correções nos ícones e botões</li>
+        <li>Aviso inicial de doação adicionado</li>
+      </ul>
+    </div>
+
+    <div class="btn-caixa red" onclick="abrirSite('https://youtube.com/@pedrinhopsico?si=p1rL69lMnlll7lh0')">
+      <i class="fab fa-youtube"></i> YouTube NicollasPsico
     </div>
   </div>
 
   <script>
     function abrirSite(url) {
-      window.open(url, '_blank');
+      window.open(url, "_blank");
     }
-
-    function copiarScript(script) {
-      navigator.clipboard.writeText(script).then(() => {
-        alert('Copiado com sucesso!');
+    function copiarTexto(texto) {
+      navigator.clipboard.writeText(texto).then(() => {
+        alert("Código copiado com sucesso!");
       });
     }
-
-    function mostrarPopup() {
-      document.getElementById('popup').style.display = 'flex';
+    // Aviso de doação ao entrar
+    window.onload = () => {
+      const aviso = document.createElement("div");
+      aviso.style.position = "fixed";
+      aviso.style.top = 0;
+      aviso.style.left = 0;
+      aviso.style.width = "100%";
+      aviso.style.height = "100%";
+      aviso.style.backgroundColor = "rgba(0,0,0,0.95)";
+      aviso.style.display = "flex";
+      aviso.style.flexDirection = "column";
+      aviso.style.justifyContent = "center";
+      aviso.style.alignItems = "center";
+      aviso.style.zIndex = 9999;
+      aviso.innerHTML = `
+        <h2 style="color: white; text-align: center;">Ajude nosso projeto com uma doação!</h2>
+        <div style="margin-top: 20px;">
+          <button onclick="window.open('https://pixgg.com/NicollasPsico');document.body.removeChild(this.parentElement.parentElement)" style="padding: 10px 20px; font-size: 16px; margin-right: 10px;">Doar</button>
+          <button onclick="document.body.removeChild(this.parentElement.parentElement)" style="padding: 10px 20px; font-size: 16px;">Mais tarde</button>
+        </div>
+      `;
+      document.body.appendChild(aviso);
     }
-
-    function fecharPopup() {
-      document.getElementById('popup').style.display = 'none';
-    }
-
-    // Efeito digitando
-    const texto = "CMSP Cheats Painel V2";
-    let i = 0;
-    let apagando = false;
-
-    function digitar() {
-      const elemento = document.getElementById("typed-text");
-
-      if (!apagando && i <= texto.length) {
-        elemento.innerText = texto.substring(0, i++);
-        setTimeout(digitar, 100);
-      } else if (i > 0) {
-        apagando = true;
-        i--;
-        elemento.innerText = texto.substring(0, i);
-        setTimeout(digitar, 70);
-      } else {
-        apagando = false;
-        setTimeout(digitar, 800);
-      }
-    }
-
-    digitar();
   </script>
 </body>
-  </html>
+</html>
