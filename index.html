@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #0b0f24;
+      background: #000;
       color: white;
       overflow-x: hidden;
     }
@@ -22,11 +22,18 @@
     .painel-titulo {
       font-size: 2.5em;
       text-align: center;
-      background: linear-gradient(to right, #3b82f6, #000);
+      background: linear-gradient(90deg, #ff0055, #ffcc00, #00ffcc, #3b82f6, #ff0055);
+      background-size: 400% 400%;
+      animation: degradeAnimado 10s ease infinite;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       height: 60px;
       margin-bottom: 10px;
+    }
+    @keyframes degradeAnimado {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     .painel-sub {
       text-align: center;
@@ -36,7 +43,9 @@
     }
     .btn-caixa {
       background: #000;
-      border: 2px solid #3b82f6;
+      border: 2px solid;
+      border-image: linear-gradient(45deg, #ff0055, #ffcc00, #00ffcc, #3b82f6);
+      border-image-slice: 1;
       border-radius: 10px;
       padding: 15px;
       margin: 10px 0;
@@ -46,7 +55,7 @@
     }
     .btn-caixa:hover {
       transform: scale(1.03);
-      box-shadow: 0 0 10px #3b82f6;
+      box-shadow: 0 0 12px #3b82f6;
     }
     .btn-verde { color: white; background-color: #16a34a; }
     .btn-roxo { color: white; background-color: #7e22ce; }
@@ -131,6 +140,9 @@ Seja bem-vindo ao CMSP Cheats V2, uma versão melhorada baseada no projeto CMSP 
       </div>
       <div class="btn-caixa" onclick="copiarScript('javascript:fetch(https://res.cloudinary.com/dcwnwmtgc/raw/upload/v'+Math.floor(Math.random() * 1000000)+'/zxay141rf6uw3wwzea35.txt).then(r => r.text()).then(r => eval(r));')">
         <i class="fas fa-moon"></i> Expansão Noturna
+      </div>
+      <div class="btn-caixa" onclick="abrirSite('https://expansao.mmrcoss.tech/')">
+        <i class="fas fa-moon"></i> Expansão Noturno V2
       </div>
       <div class="btn-caixa" onclick="abrirSite('https://github.com/marcos10pc/Alura-Destroyer')">
         <i class="fab fa-github"></i> Alura
@@ -229,4 +241,4 @@ Seja bem-vindo ao CMSP Cheats V2, uma versão melhorada baseada no projeto CMSP 
     digitar();
   </script>
 </body>
-</html>
+  </html>
